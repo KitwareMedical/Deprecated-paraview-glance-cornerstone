@@ -1,0 +1,53 @@
+import * as cornerstoneTools from 'cornerstone-tools';
+
+// import arrowAnnotate from './arrowAnnotate';
+import Tools from './Tools';
+
+import { ToolTypes, MouseButtons } from './Constants';
+
+export default {
+  defaults: {
+    mouse: {
+      [MouseButtons.Left]: 'wwwc',
+      [MouseButtons.Middle]: 'pan',
+      [MouseButtons.Right]: 'zoom',
+    },
+  },
+  definitions: {
+    pan: {
+      tool: cornerstoneTools.pan,
+      type: ToolTypes.Mouse,
+      activateArgs: ['mouseButton'],
+      deactivateArgs: ['mouseButton'],
+      args: {
+        mouseButton: MouseButtons.Middle,
+      },
+    },
+    zoom: {
+      tool: cornerstoneTools.zoom,
+      type: ToolTypes.Mouse,
+      activateArgs: ['mouseButton'],
+      deactivateArgs: ['mouseButton'],
+      args: {
+        mouseButton: MouseButtons.Right,
+      },
+    },
+    wwwc: {
+      tool: Tools.wwwc,
+      type: ToolTypes.Mouse,
+      activateArgs: ['mouseButton'],
+      deactivateArgs: ['mouseButton'],
+      args: {
+        mouseButton: MouseButtons.Left,
+      },
+    },
+    // arrowAnnotate: {
+    //   tool: arrowAnnotate,
+    //   activateArgs: ['mouseButton'],
+    //   deactivateArgs: ['mouseButton'],
+    //   args: {
+    //     mouseButton: MouseButtons.Left,
+    //   },
+    // },
+  },
+};

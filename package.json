@@ -1,0 +1,39 @@
+{
+    "name": "glance-external-cornerstone",
+    "version": "0.0.0-semantically-release",
+    "description": "Cornerstone plugin for ParaView Glance",
+    "license": "BSD-3-Clause",
+    "main": "./Distribution/glance-external-cornerstone.js",
+    "dependencies": {
+        "font-awesome": "4.5.0",
+        "itk": "^9.1.0",
+        "paraview-glance": "1.1.44",
+        "react-modal": "^3.4.4"
+    },
+    "devDependencies": {
+        "@florist/cornerstone-tools": "latest",
+        "copy-webpack-plugin": "^4.5.1",
+        "cornerstone-core": "^2.1.0",
+        "cornerstone-math": "^0.1.6",
+        "kw-web-suite": "6.0.2",
+        "postcss-variables": "1.1.1",
+        "webpack-bundle-analyzer": "2.9.1"
+    },
+    "scripts": {
+        "validate": "prettier --config ./prettier.config.js --list-different \"Sources/**/*.js\"",
+        "reformat": "prettier --config ./prettier.config.js --write \"Sources/**/*.js\"",
+        "reformat-only": "prettier --single-quote --trailing-comma es5 --print-width 80 --arrow-parens always --write",
+        "start": "webpack-dev-server --mode development",
+        "build": "webpack --progress --colors --mode development",
+        "build:debug": "webpack --progress --colors --display-modules --mode development",
+        "build:release": "webpack --progress --colors --mode production",
+        "server": "http-server ./Distribution -p 9998",
+        "commit": "git cz",
+        "semantic-release": "semantic-release"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-conventional-changelog"
+        }
+    }
+}
